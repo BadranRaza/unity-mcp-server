@@ -57,7 +57,7 @@ The **MCP** status dropdown appears automatically in Unity's main toolbar. Open 
 
 ### 2. Install the server
 
-Use Node.js 18 or newer; a maintained Node.js LTS is recommended.
+Use Node.js 20 or newer; a maintained Node.js LTS is recommended.
 
 ```bash
 git clone --branch main https://github.com/AnkleBreaker-Studio/unity-mcp-server.git
@@ -178,14 +178,14 @@ Measurements use separate before/after fixtures and historical baselines on Unit
 
 The plugin declares **Unity 2021.3.18f1+** support. Server and plugin versions advance independently and do not need matching version numbers. Current live validation uses **Unity 6000.6.2f1 on Windows**; minimum-version C# compilation also passes. Actual older-editor execution is deferred.
 
-**263 server tests pass across eight CI configurations** (Node 18/20/22/24 on Windows/Linux), and the plugin's registry check covers **338 routes**. Real-editor workflows include mixed released/current components, two editors, MPPM Host/Client, ParrelSync and actual script reloads. These checks have different recorded source checkpoints; the [delivery summary](docs/modernization-audit.md) identifies them and the remaining coverage limits.
+**Earlier validation recorded 263 server tests passing across eight CI configurations** (Node 18/20/22/24 on Windows/Linux), and the plugin's registry check covers **338 routes**. Real-editor workflows include mixed released/current components, two editors, MPPM Host/Client, ParrelSync and actual script reloads. These checks have different recorded source checkpoints; the [delivery summary](docs/modernization-audit.md) identifies them and the remaining coverage limits.
 
 <details>
 <summary><strong>Explore the tested workflows and their evidence</strong></summary>
 
 | Verified workflow | Evidence and limits |
 |---|---|
-| Released/current components | All four server-plugin pairs on Node 18 and 22, plus concurrent agents across mixed plugin versions. [Version matrix](docs/compatibility.md) |
+| Released/current components | Historical validation of all four server-plugin pairs on Node 18 and 22, plus concurrent agents across mixed plugin versions. [Version matrix](docs/compatibility.md) |
 | Multiple editors and reloads | Overlapping calls to two editors, four Play Mode reload configurations and lost-result handling after script reload. [Validation record](docs/modernization.md) |
 | Multiplayer Play Mode 3.0 | Host/Client launch, separate agent routing and shared script recompilation. [Multiplayer guide](docs/multiplayer.md) |
 | ParrelSync 1.5.2 | Native clone identity, independent agents, Play Mode, shared recompilation, settings persistence and clone restart. Gameplay connections need separate validation. [Clone guide](docs/parrelsync.md) |
